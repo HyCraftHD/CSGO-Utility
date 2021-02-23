@@ -2,12 +2,7 @@ body {
     background-color: coral;
 }
 
-#maps img {
-    border-radius: 10px;
-    width: 300px;
-}
-
-#map canvas {
-    height: 800px;
+#map { 
     width: 800px;
+    height: 800px;
 }

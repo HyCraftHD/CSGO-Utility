@@ -1,0 +1,17 @@
+{
+   "type": "smoke",
+   "name": "Apps",
+   "description": "Smoke Apps for the CT",
+   "x": 131,
+   "y": 551,
+   "entries":[
+      {
+         "name": "Apps",
+         "description": "Smoke from Balcony Apps entry as a Oneway",
+         "ticks": "x",
+         "x": 132,
+         "y": 623,
+         "youtube": "OMXXhON3qJU"
+      }
+   ]
+}
