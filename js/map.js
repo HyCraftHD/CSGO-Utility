@@ -27,12 +27,7 @@ function Map(div, name) {
 
     let object = this;
     map.on("click", function(e) {  
-        if (object.tmpMarkers.length != 0) {
-            object.tmpMarkers.forEach(function(locMarker) {
-                map.removeLayer(locMarker)
-            })
-            object.tmpMarkers.splice(0, object.tmpMarkers.length)
-        }
+        object.clearTmpPoints()
     })
 
     this.name = name
@@ -53,6 +48,17 @@ Map.prototype.loadPoints = async function() {
     })
 }
 
+Map.prototype.clearTmpPoints = function() {
+    if (this.tmpMarkers.length != 0) {
+        this.tmpMarkers.forEach(function(locMarker) {
+            this.map.map.removeLayer(locMarker)
+        })
+        this.tmpMarkers.splice(0, this.tmpMarkers.length)
+        return true
+    }
+    return false
+}
+
 Map.prototype.addPoint = function(point) {
     let object = this;
     let map = this.map
@@ -66,19 +72,18 @@ Map.prototype.addPoint = function(point) {
         shadowSize: [41, 41]
     });
     
-    console.log(point.entries)
-
     let marker = L.marker([point.x, point.y], {
         icon: greenIcon,
         locations: point.entries
     })
+
+    marker.bindTooltip("Test Label",  {
+        permanent: false, 
+        direction: 'right'
+    })
+
     marker.on("click", function(e) {
-        if (object.tmpMarkers.length != 0) {
-            object.tmpMarkers.forEach(function(locMarker) {
-                map.removeLayer(locMarker)
-            })
-            object.tmpMarkers.splice(0, object.tmpMarkers.length)
-        } else {
+        if (!object.clearTmpPoints()) {
             this.options.locations.forEach(function(location) {
                 let locMarker = L.marker([location.x, location.y])
                 locMarker.addTo(map)
