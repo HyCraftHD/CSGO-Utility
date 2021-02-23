@@ -63,29 +63,44 @@ Map.prototype.addPoint = function(point) {
     let object = this;
     let map = this.map
 
-    var greenIcon = new L.Icon({
-        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
-        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41]
+    var smoke = new L.Icon({
+        iconUrl: "./assets/img/smoke.png",
+        iconSize: [30, 30]
     });
     
     let marker = L.marker([point.x, point.y], {
-        icon: greenIcon,
+        icon: smoke,
         locations: point.entries
     })
 
-    marker.bindTooltip("Test Label",  {
-        permanent: false, 
-        direction: 'right'
+    marker.bindTooltip(point.name,  {
+        permanent: false
     })
 
     marker.on("click", function(e) {
         if (!object.clearTmpPoints()) {
             this.options.locations.forEach(function(location) {
-                let locMarker = L.marker([location.x, location.y])
+
+                var fromWhere = new L.Icon({
+                    iconUrl: "./assets/img/from_where.png",
+                    iconSize: [40, 40]
+                });
+
+                let locMarker = L.marker([location.x, location.y], {
+                    icon: fromWhere,
+                    location: location
+                })
+
+                locMarker.bindTooltip(location.name + "<br />" + location.description,  {
+                    permanent: false
+                })
+
+                locMarker.on("click", function(e) {
+                    console.log(this.options.location.youtube) // TODO debug
+                    document.getElementById("youtube-player").src = "http://www.youtube.com/embed/" + this.options.location.youtube + "?wmode=opaque&rel=0&autoplay=1"
+                    document.getElementById("overlay").style.display = "block";
+                })
+
                 locMarker.addTo(map)
                 object.tmpMarkers.push(locMarker)
             })
