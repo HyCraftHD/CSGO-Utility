@@ -23,8 +23,21 @@ function Map(div, name) {
         alert("Map Coordinates are: " + event.latlng.toString())
     });
 
+    map.doubleClickZoom.disable()
+
+    let object = this;
+    map.on("click", function(e) {  
+        if (object.tmpMarkers.length != 0) {
+            object.tmpMarkers.forEach(function(locMarker) {
+                map.removeLayer(locMarker)
+            })
+            object.tmpMarkers.splice(0, object.tmpMarkers.length)
+        }
+    })
+
     this.name = name
     this.map = map
+    this.tmpMarkers = []
 }
 
 Map.prototype.loadPoints = async function() {
@@ -41,6 +54,7 @@ Map.prototype.loadPoints = async function() {
 }
 
 Map.prototype.addPoint = function(point) {
+    let object = this;
     let map = this.map
 
     var greenIcon = new L.Icon({
@@ -50,19 +64,29 @@ Map.prototype.addPoint = function(point) {
         iconAnchor: [12, 41],
         popupAnchor: [1, -34],
         shadowSize: [41, 41]
-      });
+    });
     
+    console.log(point.entries)
+
     let marker = L.marker([point.x, point.y], {
         icon: greenIcon,
         locations: point.entries
     })
     marker.on("click", function(e) {
-        this.options.locations.forEach(function(location) {
-            console.log(location)
-            L.marker([location.x, location.y]).addTo(map)
-        })
+        if (object.tmpMarkers.length != 0) {
+            object.tmpMarkers.forEach(function(locMarker) {
+                map.removeLayer(locMarker)
+            })
+            object.tmpMarkers.splice(0, object.tmpMarkers.length)
+        } else {
+            this.options.locations.forEach(function(location) {
+                let locMarker = L.marker([location.x, location.y])
+                locMarker.addTo(map)
+                object.tmpMarkers.push(locMarker)
+            })
+        }
     })
-    marker.addTo(map);
+    marker.addTo(map)
 }
 
 Map.prototype.getMap = function () {
