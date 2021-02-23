@@ -1,3 +1,14 @@
 body {
     background-color: coral;
 }
+
+#maps img {
+    border-radius: 10px;
+    width: 300px;
+}
+
+#map img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
