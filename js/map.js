@@ -97,7 +97,7 @@ Map.prototype.addPoint = function(point) {
 
                 locMarker.on("click", function(e) {
                     console.log(this.options.location.youtube) // TODO debug
-                    document.getElementById("youtube-player").src = "http://www.youtube.com/embed/" + this.options.location.youtube + "?wmode=opaque&rel=0&autoplay=1"
+                    document.getElementById("youtube-player").src = "https://www.youtube.com/embed/" + this.options.location.youtube + "?wmode=opaque&rel=0&autoplay=1"
                     document.getElementById("overlay").style.display = "block";
                 })
 
