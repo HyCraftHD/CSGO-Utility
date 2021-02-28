@@ -10,30 +10,27 @@ class Map {
         L.imageOverlay("./assets/img/" + name + "_map.png", bounds).addTo(map)
 
         map.setView([400, 400], 0)
-
         map.setMaxBounds(bounds)
+        map.fitBounds(bounds)
+        map.doubleClickZoom.disable()
         map.on("drag", function () {
             map.panInsideBounds(bounds, {
                 animate: false
             })
         })
 
-        map.fitBounds(bounds)
-
+        // DEBUG
         map.on("contextmenu", function (event) {
             alert("Map Coordinates are: " + event.latlng.toString())
         })
+        // DEBUG
 
-        map.doubleClickZoom.disable()
-
-        let object = this
         map.on("click", function (e) {
-            object.clearTmpPoints()
+            clearTmpPoints()
         })
 
         this.name = name
         this.map = map
-        this.tmpMarkers = []
     }
 
     async loadPoints() {
