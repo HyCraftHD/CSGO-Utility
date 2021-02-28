@@ -1,13 +1,22 @@
 class Map {
-    constructor(div, name) {
-        var bounds = [[0, 0], [800, 800]]
 
-        var map = L.map(div, {
+    constructor(div, name) {
+        this._name = name
+
+        this._setupMap(div)    
+        this._setupLayers()
+        this._setupIcons()
+    }
+
+    _setupMap(div) {
+        let bounds = [[0, 0], [800, 800]]
+
+        let map = L.map(div, {
             crs: L.CRS.Simple,
             attributionControl: false
         })
 
-        L.imageOverlay("./assets/img/" + name + "_map.png", bounds).addTo(map)
+        L.imageOverlay("./assets/img/" + this._name + "_map.png", bounds).addTo(map)
 
         map.setView([400, 400], 0)
         map.setMaxBounds(bounds)
@@ -23,52 +32,44 @@ class Map {
         map.on("contextmenu", function (event) {
             alert("Map Coordinates are: " + event.latlng.toString())
         })
-        // DEBUG
-
         map.on("click", function (e) {
             clearTmpPoints()
         })
+        // DEBUG
 
-        this.name = name
-        this.map = map
+        this._map = map
     }
 
+    _setupLayers() {
+        this._smokeLayer = new L.layerGroup().addTo(this._map)
+    }
+
+    _setupIcons() {
+        this._smokeIcon = new L.Icon({
+            iconUrl: "./assets/img/smoke.png",
+            iconSize: [30, 30]
+        })
+    }
+  
     async loadPoints() {
-        let object = this
-        let name = this.name
+        let self = this
+        let name = this._name
 
         let files = await (await fetch("./assets/json/" + name + "/load.json")).json()
 
         files.forEach(async function (file) {
             let json = await (await fetch("./assets/json/" + name + "/" + file)).json()
 
-            object.addPoint(json)
+            self.addPoint(json)
         })
-    }
-
-    clearTmpPoints() {
-        let object = this
-        if (this.tmpMarkers.length != 0) {
-            this.tmpMarkers.forEach(function (locMarker) {
-                object.map.removeLayer(locMarker)
-            })
-            this.tmpMarkers.splice(0, this.tmpMarkers.length)
-            return true
-        }
-        return false
     }
 
     addPoint(point) {
-        let object = this
-        let map = this.map
-
-        var smoke = new L.Icon({
-            iconUrl: "./assets/img/smoke.png",
-            iconSize: [30, 30]
-        })
+        let self = this
+        let map = this._map
 
         let marker = L.marker([point.x, point.y], {
-            icon: smoke,
+            icon: self._smokeIcon,
             locations: point.entries
         })
 
@@ -77,7 +78,7 @@ class Map {
         })
 
         marker.on("click", function (e) {
-            if (!object.clearTmpPoints()) {
+            if (!self.clearTmpPoints()) {
                 this.options.locations.forEach(function (location) {
 
                     var fromWhere = new L.Icon({
@@ -101,11 +102,23 @@ class Map {
                     })
 
                     locMarker.addTo(map)
-                    object.tmpMarkers.push(locMarker)
+                    self.tmpMarkers.push(locMarker)
                 })
             }
         })
-        marker.addTo(map)
+        marker.addTo(this._smokeLayer)
+    }
+
+    clearTmpPoints() {
+        let object = this
+        if (this.tmpMarkers.length != 0) {
+            this.tmpMarkers.forEach(function (locMarker) {
+                object.map.removeLayer(locMarker)
+            })
+            this.tmpMarkers.splice(0, this.tmpMarkers.length)
+            return true
+        }
+        return false
     }
 
     getMap() {
