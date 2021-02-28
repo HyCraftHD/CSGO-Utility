@@ -17,6 +17,7 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 
     <script src="./js/map.js"></script>
+    <script src="./js/main.js"></script>
 
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/main.css">
 </head>
@@ -25,6 +26,8 @@
     <div id="overlay" onclick="disableOverlay();">
         <iframe id="youtube-player" type="text/html" allowfullscreen="allowfullscreen" width="1280" height="720" src="" frameborder="0"></iframe>
     </div>
-    <script src="./js/main.js"></script>
+    <script>
+        loadMap("de_inferno");
+    </script>
 </body>
 </html>
