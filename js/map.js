@@ -35,6 +35,7 @@ class Map {
         this.map = map
         this.tmpMarkers = []
     }
+
     async loadPoints() {
         let object = this
         let name = this.name
@@ -47,17 +48,19 @@ class Map {
             object.addPoint(json)
         })
     }
+
     clearTmpPoints() {
+        let object = this
         if (this.tmpMarkers.length != 0) {
             this.tmpMarkers.forEach(function (locMarker) {
-                console.log(this)
-                this.map.removeLayer(locMarker)
+                object.map.removeLayer(locMarker)
             })
             this.tmpMarkers.splice(0, this.tmpMarkers.length)
             return true
         }
         return false
     }
+
     addPoint(point) {
         let object = this
         let map = this.map
@@ -107,6 +110,7 @@ class Map {
         })
         marker.addTo(map)
     }
+
     getMap() {
         return this.map
     }
