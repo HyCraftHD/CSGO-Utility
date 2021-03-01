@@ -1,9 +1,10 @@
-class Map {
+class UtilityMap {
 
     constructor(div, name) {
         this._name = name
 
-        this._setupMap(div)    
+        this._setupMap(div)
+        this._setupTypes()
         this._setupLayers()
         this._setupIcons()
     }
@@ -42,12 +43,20 @@ class Map {
         this._map = map
     }
 
+    _setupTypes() {
+        let types = new Map()
+
+        types.set("smoke", {})
+
+        this._types = types
+    }
+
     _setupLayers() {
-        this._smokeLayer = new L.layerGroup().addTo(this._map)
+        this._types.get("smoke").layer = new L.layerGroup().addTo(this._map)
     }
 
     _setupIcons() {
-        this._smokeIcon = new L.Icon({
+        this._types.get("smoke").icon = new L.Icon({
             iconUrl: "./assets/img/smoke.png",
             iconSize: [30, 30]
         })
@@ -60,9 +69,9 @@ class Map {
         let files = await (await fetch("./assets/json/" + name + "/load.json")).json()
 
         files.forEach(async function (file) {
-            let json = await (await fetch("./assets/json/" + name + "/" + file)).json()
+            let point = await (await fetch("./assets/json/" + name + "/" + file)).json()
 
-            self.addPoint(json)
+            self.addPoint(point)
         })
     }
 
@@ -71,7 +80,7 @@ class Map {
         let map = this._map
 
         let marker = L.marker([point.x, point.y], {
-            icon: self._smokeIcon,
+            icon: this._types.get(point.type).icon,
             locations: point.entries
         })
 
@@ -108,7 +117,7 @@ class Map {
                 })
             }
         })
-        marker.addTo(this._smokeLayer)
+        marker.addTo(this._types.get(point.type).layer)
     }
 
     clearTmpPoints() {

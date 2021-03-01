@@ -1,5 +1,5 @@
 function loadMap(map) {
-    map = new Map("map", "de_inferno")
+    map = new UtilityMap("map", "de_inferno")
     map.loadPoints()
 }
 
