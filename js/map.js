@@ -41,6 +41,7 @@ class UtilityMap {
 
         map.on("click", function (e) {
             self._unshowLocations()
+            self._unselectLocation()
         })
 
         this._map = map
@@ -75,7 +76,12 @@ class UtilityMap {
 
         this._locationIcon = new L.Icon({
             iconUrl: "./assets/img/from_where.png",
-            iconSize: [40, 40]
+            iconSize: [20, 20]
+        })
+
+        this._locationIconSelected = new L.Icon({
+            iconUrl: "./assets/img/from_where_selected.png",
+            iconSize: [20, 20]
         })
     }
   
@@ -126,6 +132,11 @@ class UtilityMap {
 
             marker.bindTooltip("<b>" + location.name + "</b><br />" + location.description)
 
+            marker.on("click", function (e) {
+                self._unselectLocation()
+                self._selectLocation(marker)
+            })
+
             marker.addTo(self._locationLayer)
         })
     }
@@ -152,5 +163,19 @@ class UtilityMap {
             marker.setIcon(marker.options.normalIcon)
             this._selectedPoint = undefined
         }     
+    }
+
+    _selectLocation(marker) {
+        marker.setIcon(this._locationIconSelected)
+        this._selectedLocation = marker
+    }
+
+    _unselectLocation() {
+        let marker = this._selectedLocation
+
+        if(marker != undefined) {
+            marker.setIcon(this._locationIcon)
+            this._selectedLocation = undefined
+        }
     }
 }
