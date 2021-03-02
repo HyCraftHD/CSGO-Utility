@@ -3,7 +3,7 @@ body {
 }
 
 #map { 
-    width: 800px;
-    height: 800px;
+    width: 95vh;
+    height: 95vh;
     z-index: 1;
 }

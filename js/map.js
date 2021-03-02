@@ -14,7 +14,12 @@ class UtilityMap {
 
         let name = this._name
 
-        let bounds = [[0, 0], [800, 800]]
+        let element = document.getElementById(div)
+        let positionInfo = element.getBoundingClientRect()
+        let height = positionInfo.height
+        let width = positionInfo.width
+
+        let bounds = [[0, 0], [height, width]]
 
         let map = L.map(div, {
             crs: L.CRS.Simple,
@@ -23,7 +28,7 @@ class UtilityMap {
 
         L.imageOverlay("./assets/img/" + name + "_map.png", bounds).addTo(map)
 
-        map.setView([400, 400], 0)
+        map.setView([height / 2, width / 2], 0)
         map.setMaxBounds(bounds)
         map.fitBounds(bounds)
         map.doubleClickZoom.disable()
