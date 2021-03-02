@@ -37,10 +37,11 @@ class UtilityMap {
         map.on("contextmenu", function (event) {
             alert("Map Coordinates are: " + event.latlng.toString())
         })
+        // DEBUG
+
         map.on("click", function (e) {
             self._unshowLocations()
         })
-        // DEBUG
 
         this._map = map
     }
