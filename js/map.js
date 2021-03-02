@@ -157,6 +157,8 @@ class UtilityMap {
     }
 
     _unselectPoint() {
+        this._unselectLocation()
+
         let marker = this._selectedPoint
 
         if(marker != undefined) {
