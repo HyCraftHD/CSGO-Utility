@@ -1,11 +1,24 @@
 body {
     background-color: #282828;
+    color: #FFFFFF;
     padding: 0;
     margin: 0;
+    overflow-x: hidden;
+}
+
+#wrapper {
+    width: 100vw;
+    max-width: 100%; 
+    overflow: hidden;
 }
 
 #map { 
     width: 800px;
     height: 800px;
     z-index: 1;
+    float: left;
+}
+
+#list {
+    overflow: hidden;
 }
