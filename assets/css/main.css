@@ -20,5 +20,6 @@ body {
 }
 
 #list {
+    display: none;
     overflow: hidden;
 }
