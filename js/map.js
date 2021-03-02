@@ -68,6 +68,11 @@ class UtilityMap {
             iconSize: [30, 30]
         })
 
+        this._types.get("smoke").selectedIcon = new L.Icon({
+            iconUrl: "./assets/img/smoke_selected.png",
+            iconSize: [30, 30]
+        })
+
         this._locationIcon = new L.Icon({
             iconUrl: "./assets/img/from_where.png",
             iconSize: [40, 40]
@@ -92,13 +97,17 @@ class UtilityMap {
         let map = this._map
 
         let marker = L.marker([point.x, point.y], {
-            icon: this._types.get(point.type).icon
+            normalIcon: this._types.get(point.type).icon,
+            selectedIcon: this._types.get(point.type).selectedIcon
         })
 
-        marker.bindTooltip(point.name)
+        marker.setIcon(marker.options.normalIcon)
+
+        marker.bindTooltip("<b>" + point.name + "</b>")
 
         marker.on("click", function (e) {
             self._showLocations(point.entries)
+            self._selectPoint(marker)
         })
 
         marker.addTo(this._types.get(point.type).layer)
@@ -128,5 +137,20 @@ class UtilityMap {
 
     _removeLocations() {
         this._locationLayer.clearLayers()
+        this._unselectPoint()
+    }
+
+    _selectPoint(marker) {
+        marker.setIcon(marker.options.selectedIcon)
+        this._selectedPoint = marker
+    }
+
+    _unselectPoint() {
+        let marker = this._selectedPoint
+
+        if(marker != undefined) {
+            marker.setIcon(marker.options.normalIcon)
+            this._selectedPoint = undefined
+        }     
     }
 }
