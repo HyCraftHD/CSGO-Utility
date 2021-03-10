@@ -4,7 +4,7 @@
    "description": "Arch smoke",
    "x": 389,
    "y": 625,
-   "entries":[
+   "entries": [
       {
          "name": "Broom",
          "description": "Smoke from second middle (broom)",
@@ -13,7 +13,7 @@
          "y": 448,
          "youtube": "E292h-4YuYg"
       },
-	  {
+      {
          "name": "Long",
          "description": "Smoke from close long",
          "ticks": "128",
@@ -21,7 +21,7 @@
          "y": 574,
          "youtube": "M7-0Fz7PS5c"
       },
-	  {
+      {
          "name": "Middle Edge (Back)",
          "description": "Smoke from the middle edge from the back",
          "ticks": "x",
@@ -29,7 +29,7 @@
          "y": 483.75,
          "youtube": "TqWjqAQ0380"
       },
-	  {
+      {
          "name": "Middle Edge (Side)",
          "description": "Smoke from the middle edge from the side",
          "ticks": "x",
@@ -37,7 +37,7 @@
          "y": 487.75,
          "youtube": "ecrU5d4ORBM"
       },
-	  {
+      {
          "name": "Upper Middle",
          "description": "Smoke from upper middle",
          "ticks": "128",

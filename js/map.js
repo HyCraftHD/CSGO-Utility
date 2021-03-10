@@ -1,9 +1,11 @@
 class UtilityMap {
 
-    constructor(div, name) {
+    constructor(divMap, divList, name) {
         this._name = name
 
-        this._setupMap(div)
+        this._list = document.getElementById(divList)
+
+        this._setupMap(divMap)
         this._setupTypes()
         this._setupLayers()
         this._setupIcons()
@@ -114,6 +116,7 @@ class UtilityMap {
         marker.on("click", function (e) {
             self._showLocations(point.entries)
             self._selectPoint(marker)
+            self._updateList(point)
         })
 
         marker.addTo(this._types.get(point.type).layer)
@@ -179,5 +182,20 @@ class UtilityMap {
             marker.setIcon(this._locationIcon)
             this._selectedLocation = undefined
         }
+    }
+
+    _updateList(point) {
+        let list = this._list
+
+        // Set header text
+        let header = list.getElementsByTagName("button")[0]
+        header.innerHTML = "<b>" + point.name + "</b><br />" + point.description
+
+
+        let listEntries = list.getElementsByClassName("list-group")[0]
+
+        listEntries.insertAdjacentHTML("beforeend", 'PUT_HTML_HERE');
+
+        console.log(listEntries)
     }
 }

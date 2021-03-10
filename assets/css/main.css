@@ -20,6 +20,6 @@ body {
 }
 
 #list {
-    display: none;
     overflow: hidden;
+    width: 20vw;
 }
