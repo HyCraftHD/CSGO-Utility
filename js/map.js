@@ -68,12 +68,14 @@ class UtilityMap {
     _setupIcons() {
         this._types.get("smoke").icon = new L.Icon({
             iconUrl: "./assets/img/smoke.png",
-            iconSize: [30, 30]
+            iconSize: [30, 30],
+            className: "map-marker"
         })
 
         this._types.get("smoke").selectedIcon = new L.Icon({
             iconUrl: "./assets/img/smoke_selected.png",
-            iconSize: [30, 30]
+            iconSize: [30, 30],
+            className: "map-marker"
         })
 
         this._locationIcon = new L.Icon({
@@ -157,6 +159,7 @@ class UtilityMap {
     _selectPoint(marker) {
         marker.setIcon(marker.options.selectedIcon)
         this._selectedPoint = marker
+        this._showList()
     }
 
     _unselectPoint() {
@@ -167,7 +170,9 @@ class UtilityMap {
         if(marker != undefined) {
             marker.setIcon(marker.options.normalIcon)
             this._selectedPoint = undefined
-        }     
+        }
+
+        this._unshowList()
     }
 
     _selectLocation(marker) {
@@ -184,17 +189,29 @@ class UtilityMap {
         }
     }
 
+    _showList() {
+        this._list.style.display = "block"
+    }
+
+    _unshowList() {
+        this._list.style.display = "none"
+    }
+
     _updateList(point) {
         let list = this._list
-
+        
         // Set header text
-        let header = list.getElementsByTagName("button")[0]
-        header.innerHTML = "<b>" + point.name + "</b><br />" + point.description
+        let header = list.getElementsByClassName("list-header")[0]
+        header.innerHTML = "<b>" + point.name + "</b> (" + point.type.capitalize() + ") <br />" + point.description
 
-
+        // Set locations
         let listEntries = list.getElementsByClassName("list-group")[0]
+        listEntries.innerHTML = ""
 
-        listEntries.insertAdjacentHTML("beforeend", 'PUT_HTML_HERE');
+        point.entries.forEach(function (location) {
+            let text = "From <b>" + location.name + "</b> for " + location.ticks + " Ticks <br />" + location.description
+            listEntries.insertAdjacentHTML("beforeend", '<button type="button" class="list-group-item list-group-item-action list-group-item-dark active">' + text + '</button>');
+        })
 
         console.log(listEntries)
     }

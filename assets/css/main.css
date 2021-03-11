@@ -22,4 +22,5 @@ body {
 #list {
     overflow: hidden;
     width: 20vw;
+    display: none;
 }
