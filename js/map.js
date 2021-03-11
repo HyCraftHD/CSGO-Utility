@@ -60,7 +60,7 @@ class UtilityMap {
     _setupLayers() {
         this._types.get("smoke").layer = new L.layerGroup().addTo(this._map)
 
-        
+
         this._showLocationLayer = false
         this._locationLayer = new L.layerGroup().addTo(this._map)
     }
@@ -88,7 +88,7 @@ class UtilityMap {
             iconSize: [20, 20]
         })
     }
-  
+
     async loadPoints() {
         let self = this
         let name = this._name
@@ -167,7 +167,7 @@ class UtilityMap {
 
         let marker = this._selectedPoint
 
-        if(marker != undefined) {
+        if (marker != undefined) {
             marker.setIcon(marker.options.normalIcon)
             this._selectedPoint = undefined
         }
@@ -183,7 +183,7 @@ class UtilityMap {
     _unselectLocation() {
         let marker = this._selectedLocation
 
-        if(marker != undefined) {
+        if (marker != undefined) {
             marker.setIcon(this._locationIcon)
             this._selectedLocation = undefined
         }
@@ -199,7 +199,7 @@ class UtilityMap {
 
     _updateList(point) {
         let list = this._list
-        
+
         // Set header text
         let header = list.getElementsByClassName("list-header")[0]
         header.innerHTML = "<b>" + point.name + "</b> (" + point.type.capitalize() + ") <br />" + point.description
