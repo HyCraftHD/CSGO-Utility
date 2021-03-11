@@ -116,16 +116,16 @@ class UtilityMap {
         marker.bindTooltip("<b>" + point.name + "</b>")
 
         marker.on("click", function (e) {
-            self._showLocations(point.entries)
-            self._selectPoint(marker)
-            self._updateList(point)
+            self._showLocations(point)
+            self._selectPoint(marker, point)
         })
 
         marker.addTo(this._types.get(point.type).layer)
     }
 
-    _showLocations(locations) {
+    _showLocations(point) {
         let self = this
+        let locations = point.entries
 
         this._showLocationLayer = true
         this._removeLocations()
@@ -139,7 +139,7 @@ class UtilityMap {
 
             marker.on("click", function (e) {
                 self._unselectLocation()
-                self._selectLocation(marker)
+                self._selectLocation(marker, point, location)
             })
 
             marker.addTo(self._locationLayer)
@@ -156,9 +156,10 @@ class UtilityMap {
         this._unselectPoint()
     }
 
-    _selectPoint(marker) {
+    _selectPoint(marker, point) {
         marker.setIcon(marker.options.selectedIcon)
         this._selectedPoint = marker
+        this._updateList(point)
         this._showList()
     }
 
@@ -175,9 +176,11 @@ class UtilityMap {
         this._unshowList()
     }
 
-    _selectLocation(marker) {
+    _selectLocation(marker, point, location) {
         marker.setIcon(this._locationIconSelected)
         this._selectedLocation = marker
+
+        this._updateList(point, location)
     }
 
     _unselectLocation() {
@@ -197,7 +200,7 @@ class UtilityMap {
         this._list.style.display = "none"
     }
 
-    _updateList(point) {
+    _updateList(point, selectedLocation = undefined) {
         let list = this._list
 
         // Set header text
@@ -210,7 +213,8 @@ class UtilityMap {
 
         point.entries.forEach(function (location) {
             let text = "From <b>" + location.name + "</b> for " + location.ticks + " Ticks <br />" + location.description
-            listEntries.insertAdjacentHTML("beforeend", '<button type="button" class="list-group-item list-group-item-action list-group-item-dark active">' + text + '</button>');
+            let selected = location == selectedLocation
+            listEntries.insertAdjacentHTML("beforeend", '<button type="button" class="list-group-item list-group-item-action list-group-item-dark ' + (selected ? 'active' : '') + '">' + text + '</button>');
         })
 
         console.log(listEntries)
