@@ -132,13 +132,21 @@ class UtilityMap {
         let self = this
         let list = this._list
 
+        // Clear all stuff from before
+        list.innerHTML = ""
+
         // Set header text
-        let header = list.getElementsByClassName("list-header")[0]
+        let header = document.createElement("button");
+        header.type = "button"
+        header.className = "btn btn-success btn-block"
         header.innerHTML = "<b>" + point.name + "</b> (" + point.type.capitalize() + ") <br />" + point.description
 
+        list.insertAdjacentElement("beforeend", header)
+
+
         // Set locations
-        let listEntries = list.getElementsByClassName("list-group")[0]
-        listEntries.innerHTML = ""
+
+        let listEntries = document.createElement("div");
 
         point.entries.forEach(function (location) {
             let selected = location == selectedLocation
@@ -158,5 +166,7 @@ class UtilityMap {
 
             listEntries.insertAdjacentElement("beforeend", button)
         })
+
+        list.insertAdjacentElement("beforeend", listEntries)
     }
 }
