@@ -30,5 +30,5 @@ body {
     overflow: hidden;
     width: 35vw;
     float: left;
-    display: block;
+    display: none;
 }

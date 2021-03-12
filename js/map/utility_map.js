@@ -112,6 +112,7 @@ class UtilityMap {
        
         this._updateList(marker.point, marker.location)
         this._updateVideo(marker.location)
+        this._showPlayer()
     }
 
     _unselectLocation() {
@@ -121,6 +122,8 @@ class UtilityMap {
             marker.setIcon(this._locationIcon)
             this._selectedLocation = undefined
         }
+
+        this._unshowPlayer()
     }
 
     _showList() {
@@ -177,5 +180,17 @@ class UtilityMap {
         let player = this._player
 
         player.loadVideoById(location.videos[0].youtube)
+    }
+
+    _showPlayer() {
+        this._video.style.display = "block"
+    }
+
+    _unshowPlayer() {
+        this._video.style.display = "none"
+
+        let player = this._player
+
+        player.pauseVideo()
     }
 }
