@@ -128,6 +128,7 @@ class UtilityMap {
     }
 
     _updateList(point, selectedLocation = undefined) {
+        let self = this
         let list = this._list
 
         // Set header text
@@ -139,12 +140,22 @@ class UtilityMap {
         listEntries.innerHTML = ""
 
         point.entries.forEach(function (location) {
-            let text = "From <b>" + location.name + "</b> for " + location.ticks + " Ticks <br />" + location.description
             let selected = location == selectedLocation
-            listEntries.insertAdjacentHTML("beforeend", '<button type="button" class="list-group-item list-group-item-action list-group-item-dark ' + (selected ? 'active' : '') + '">' + text + '</button>');
-            
-        })
 
-        console.log(listEntries)
+            let button = document.createElement("button");
+            button.type = "button"
+            button.className = "list-group-item list-group-item-action list-group-item-dark" + (selected ? " active" : "")
+            button.innerHTML = "From <b>" + location.name + "</b> for " + location.ticks + " Ticks <br />" + location.description
+            button.onclick = function() {
+                self._locationLayer.eachLayer(function (marker) {
+                    if(marker.point == point && marker.location == location) {
+                        self._unselectLocation()
+                        self._selectLocation(marker)
+                    }
+                })
+            }
+
+            listEntries.insertAdjacentElement("beforeend", button)
+        })
     }
 }
