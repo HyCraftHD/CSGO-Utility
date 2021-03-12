@@ -22,5 +22,13 @@ body {
 #list {
     overflow: hidden;
     width: 20vw;
+    float: left;
     display: none;
+}
+
+#video {
+    overflow: hidden;
+    width: 35vw;
+    float: left;
+    display: block;
 }
