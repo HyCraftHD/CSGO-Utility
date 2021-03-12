@@ -111,13 +111,15 @@ class UtilityMap {
             selectedIcon: this._types.get(point.type).selectedIcon
         })
 
+        marker.point = point
+
         marker.setIcon(marker.options.normalIcon)
 
         marker.bindTooltip("<b>" + point.name + "</b>")
 
         marker.on("click", function (e) {
             self._showLocations(point)
-            self._selectPoint(marker, point)
+            self._selectPoint(marker)
         })
 
         marker.addTo(this._types.get(point.type).layer)
@@ -135,11 +137,14 @@ class UtilityMap {
                 icon: self._locationIcon
             })
 
+            marker.point = point
+            marker.location = location
+
             marker.bindTooltip("<b>" + location.name + "</b><br />" + location.description)
 
             marker.on("click", function (e) {
                 self._unselectLocation()
-                self._selectLocation(marker, point, location)
+                self._selectLocation(marker)
             })
 
             marker.addTo(self._locationLayer)
@@ -156,10 +161,10 @@ class UtilityMap {
         this._unselectPoint()
     }
 
-    _selectPoint(marker, point) {
+    _selectPoint(marker) {
         marker.setIcon(marker.options.selectedIcon)
         this._selectedPoint = marker
-        this._updateList(point)
+        this._updateList(marker.point)
         this._showList()
     }
 
@@ -176,11 +181,11 @@ class UtilityMap {
         this._unshowList()
     }
 
-    _selectLocation(marker, point, location) {
+    _selectLocation(marker) {
         marker.setIcon(this._locationIconSelected)
         this._selectedLocation = marker
 
-        this._updateList(point, location)
+        this._updateList(marker.point, marker.location)
     }
 
     _unselectLocation() {
@@ -215,6 +220,7 @@ class UtilityMap {
             let text = "From <b>" + location.name + "</b> for " + location.ticks + " Ticks <br />" + location.description
             let selected = location == selectedLocation
             listEntries.insertAdjacentHTML("beforeend", '<button type="button" class="list-group-item list-group-item-action list-group-item-dark ' + (selected ? 'active' : '') + '">' + text + '</button>');
+            
         })
 
         console.log(listEntries)
