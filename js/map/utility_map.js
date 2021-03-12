@@ -179,7 +179,9 @@ class UtilityMap {
     _updateVideo(location) {
         let player = this._player
 
-        player.loadVideoById(location.videos[0].youtube)
+        if(player != undefined && typeof(player.pauseVideo) == "function") {
+            player.loadVideoById(location.videos[0].youtube)
+        }
     }
 
     _showPlayer() {
@@ -190,7 +192,8 @@ class UtilityMap {
         this._video.style.display = "none"
 
         let player = this._player
-
-        player.pauseVideo()
+        if(player != undefined && typeof(player.pauseVideo) == "function") {
+            player.pauseVideo()
+        }
     }
 }
