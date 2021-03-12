@@ -1,9 +1,10 @@
 class UtilityMap {
 
-    constructor(divMap, divList, name) {
+    constructor(divMap, divList, divVideo, name) {
         this._name = name
 
         this._list = document.getElementById(divList)
+        this._video = document.getElementById(divVideo)
 
         this._setupMap(divMap)
         this._setupTypes()
