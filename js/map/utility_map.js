@@ -60,8 +60,6 @@ class UtilityMap {
                 icon: self._locationIcon
             })
 
-            console.log(marker)
-
             marker.point = point
             marker.location = location
 
@@ -112,6 +110,7 @@ class UtilityMap {
         this._selectedLocation = marker
        
         this._updateList(marker.point, marker.location)
+        this._updateVideo(marker.location)
     }
 
     _unselectLocation() {
@@ -171,5 +170,18 @@ class UtilityMap {
         })
 
         list.insertAdjacentElement("beforeend", listEntries)
+    }
+
+    _updateVideo(location) {
+        let video = this._video
+
+        let iframe = document.createElement("iframe")
+        iframe.src = "https://www.youtube.com/embed/E292h-4YuYg";
+        iframe.setAttribute("frameborder", "0");
+        iframe.setAttribute("allowfullscreen", "");
+        iframe.style.width = "600px"
+        iframe.style.height = "400px"
+
+        video.insertAdjacentElement("beforeend", iframe)
     }
 }
