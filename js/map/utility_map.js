@@ -145,7 +145,7 @@ class UtilityMap {
             let button = document.createElement("button");
             button.type = "button"
             button.className = "list-group-item list-group-item-action list-group-item-dark" + (selected ? " active" : "")
-            button.innerHTML = "From <b>" + location.name + "</b> for " + location.ticks + " Ticks <br />" + location.description
+            button.innerHTML = "From <b>" + location.name + "</b><br />" + location.description
             button.onclick = function() {
                 self._locationLayer.eachLayer(function (marker) {
                     if(marker.point == point && marker.location == location) {
