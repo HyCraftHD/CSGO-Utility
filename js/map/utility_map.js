@@ -10,6 +10,7 @@ class UtilityMap {
         this._setupTypes()
         this._setupLayers()
         this._setupIcons()
+        this._setupVideoPlayer()
     }
 
     async loadPoints() {
@@ -173,15 +174,8 @@ class UtilityMap {
     }
 
     _updateVideo(location) {
-        let video = this._video
+        let player = this._player
 
-        let iframe = document.createElement("iframe")
-        iframe.src = "https://www.youtube.com/embed/E292h-4YuYg";
-        iframe.setAttribute("frameborder", "0");
-        iframe.setAttribute("allowfullscreen", "");
-        iframe.style.width = "600px"
-        iframe.style.height = "400px"
-
-        video.insertAdjacentElement("beforeend", iframe)
+        player.loadVideoById(location.videos[0].youtube)
     }
 }

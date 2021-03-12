@@ -1,4 +1,4 @@
-UtilityMap.prototype._setupMap = function(div) {
+UtilityMap.prototype._setupMap = function (div) {
     let self = this
 
     let name = this._name
@@ -36,7 +36,7 @@ UtilityMap.prototype._setupMap = function(div) {
     this._map = map
 }
 
-UtilityMap.prototype._setupTypes = function() {
+UtilityMap.prototype._setupTypes = function () {
     let types = new Map()
 
     types.set("smoke", {})
@@ -44,7 +44,7 @@ UtilityMap.prototype._setupTypes = function() {
     this._types = types
 }
 
-UtilityMap.prototype._setupLayers = function() {
+UtilityMap.prototype._setupLayers = function () {
     this._types.get("smoke").layer = new L.layerGroup().addTo(this._map)
 
 
@@ -52,7 +52,7 @@ UtilityMap.prototype._setupLayers = function() {
     this._locationLayer = new L.layerGroup().addTo(this._map)
 }
 
-UtilityMap.prototype._setupIcons = function() {
+UtilityMap.prototype._setupIcons = function () {
     this._types.get("smoke").icon = new L.Icon({
         iconUrl: "./assets/img/smoke.png",
         iconSize: [30, 30],
@@ -74,4 +74,24 @@ UtilityMap.prototype._setupIcons = function() {
         iconUrl: "./assets/img/from_where_selected.png",
         iconSize: [20, 20]
     })
+}
+
+UtilityMap.prototype._setupVideoPlayer = function () {
+    let player = new YT.Player("player", {
+        height: "390",
+        width: "640",
+        playerVars: {
+            rel: 0,
+            loop: 1
+        },
+        events: {
+            onStateChange: function(event) {
+                if(event.data == 0) {
+                    player.seekTo(0, true)
+                }
+            }
+        }
+    })
+
+    this._player = player
 }
