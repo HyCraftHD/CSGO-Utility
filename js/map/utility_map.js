@@ -60,6 +60,8 @@ class UtilityMap {
                 icon: self._locationIcon
             })
 
+            console.log(marker)
+
             marker.point = point
             marker.location = location
 
@@ -106,8 +108,9 @@ class UtilityMap {
 
     _selectLocation(marker) {
         marker.setIcon(this._locationIconSelected)
+        marker._bringToFront()
         this._selectedLocation = marker
-
+       
         this._updateList(marker.point, marker.location)
     }
 
