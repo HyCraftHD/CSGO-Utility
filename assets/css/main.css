@@ -23,7 +23,7 @@ body {
     overflow: hidden;
     width: 20vw;
     float: left;
-    display: none;
+    display: block;
 }
 
 #video {
