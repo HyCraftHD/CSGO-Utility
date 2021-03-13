@@ -185,7 +185,17 @@ class UtilityMap {
 
             location.videos.forEach(function (video) {
                 let tick = document.createElement("span")
-                tick.className = "badge bg-success float-right"
+
+                let ticks = Number(video.ticks)
+                let badge = "bg-success"
+
+                if(ticks == 128) {
+                    badge = "bg-danger"
+                } else if (ticks == 64) {
+                    badge = "bg-warning"
+                }
+
+                tick.className = "badge float-right " + badge
                 tick.innerHTML = video.ticks + " Ticks"
                 tickList.insertAdjacentElement("beforeend", tick)
 
