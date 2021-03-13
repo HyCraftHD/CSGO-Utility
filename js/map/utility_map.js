@@ -157,10 +157,45 @@ class UtilityMap {
         point.entries.forEach(function (location) {
             let selected = location == selectedLocation
 
-            let button = document.createElement("button");
+            let button = document.createElement("button")
             button.type = "button"
             button.className = "list-group-item list-group-item-action list-group-item-dark" + (selected ? " active" : "")
-            button.innerHTML = "From <b>" + location.name + "</b><br />" + location.description
+
+            let content = document.createElement("div")
+            content.className = "d-flex justify-content-between"
+
+            let text = document.createElement("span")
+            text.innerHTML = "From <b>" + location.name + "</b><br />" + location.description
+            content.insertAdjacentElement("beforeend", text)
+
+            let tickList = document.createElement("span")
+
+            location.videos.sort((a, b) => {
+                let tickA = String(a.ticks)
+                let tickB = String(b.ticks)
+
+                if(isNaN(parseFloat(tickA))) {
+                    return -1;
+                } else if(isNaN(parseFloat(tickB))) {
+                    return 1;
+                } else {
+                    return tickB - tickA
+                }
+            })
+
+            location.videos.forEach(function (video) {
+                let tick = document.createElement("span")
+                tick.className = "badge bg-success float-right"
+                tick.innerHTML = video.ticks + " Ticks"
+                tickList.insertAdjacentElement("beforeend", tick)
+
+                let lineBreak = document.createElement("br")
+                tickList.insertAdjacentElement("beforeend", lineBreak)
+            })
+            content.insertAdjacentElement("beforeend", tickList)
+
+            button.insertAdjacentElement("beforeend", content)
+
             button.onclick = function() {
                 self._locationLayer.eachLayer(function (marker) {
                     if(marker.point == point && marker.location == location) {
