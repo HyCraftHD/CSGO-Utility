@@ -261,6 +261,20 @@ class UtilityMap {
 
                 selectedVideo = location.videos[0]
             }
+
+            let iframe = player.getIframe()
+            iframe.style.border = "solid 10px"
+            
+            let selectedTicks = Number(selectedVideo.ticks)
+            let color = "#5cb85c"
+
+            if(selectedTicks == 128) {
+                color = "#d9534f"
+            } else if(selectedTicks == 64) {
+                color = "#f0ad4e"
+            }
+            iframe.style.borderColor = color
+            
             player.loadVideoById(selectedVideo.youtube)
         }
     }
