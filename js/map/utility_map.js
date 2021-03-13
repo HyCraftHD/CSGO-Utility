@@ -221,11 +221,38 @@ class UtilityMap {
         list.insertAdjacentElement("beforeend", listEntries)
     }
 
-    _updateVideo(location) {
+    _updateVideo(location, ticks = undefined) {
         let player = this._player
 
         if(player != undefined && typeof(player.pauseVideo) == "function") {
-            player.loadVideoById(location.videos[0].youtube)
+            let selectedVideo = undefined
+
+            if(ticks != undefined) {
+                location.videos.forEach(function (video) {
+                    if(String(video.ticks) === String(ticks)) {
+                        selectedVideo = video
+                    }
+                })
+            }
+
+            if(selectedVideo == undefined) {
+                location.videos.sort((a, b) => {
+                    let tickA = String(a.ticks)
+                    let tickB = String(b.ticks)
+    
+                    if(isNaN(parseFloat(tickA))) {
+                        return -1;
+                    } else if(isNaN(parseFloat(tickB))) {
+                        return 1;
+                    } else {
+                        return tickB - tickA
+                    }
+                })
+
+                selectedVideo = location.videos[0]
+            }
+
+            player.loadVideoById(selectedVideo.youtube)
         }
     }
 
