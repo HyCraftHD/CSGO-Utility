@@ -105,13 +105,13 @@ class UtilityMap {
         this._unshowList()
     }
 
-    _selectLocation(marker) {
+    _selectLocation(marker, ticks = undefined) {
         marker.setIcon(this._locationIconSelected)
         marker._bringToFront()
         this._selectedLocation = marker
        
         this._updateList(marker.point, marker.location)
-        this._updateVideo(marker.location)
+        this._updateVideo(marker.location, ticks)
         this._showPlayer()
     }
 
@@ -197,6 +197,16 @@ class UtilityMap {
 
                 tick.className = "badge float-right " + badge
                 tick.innerHTML = video.ticks + " Ticks"
+                tick.onclick = function(event) {
+                    event.stopPropagation()
+                    self._locationLayer.eachLayer(function (marker) {
+                        if(marker.point == point && marker.location == location) {
+                            self._unselectLocation()
+                            self._selectLocation(marker, video.ticks)
+                        }
+                    })
+                }
+
                 tickList.insertAdjacentElement("beforeend", tick)
 
                 let lineBreak = document.createElement("br")
@@ -251,7 +261,6 @@ class UtilityMap {
 
                 selectedVideo = location.videos[0]
             }
-
             player.loadVideoById(selectedVideo.youtube)
         }
     }
