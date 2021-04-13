@@ -1,0 +1,33 @@
+{
+    "type": "smoke",
+    "name": "Coffins",
+    "description": "Smokes for Coffins",
+    "x": 683,
+    "y": 411,
+    "entries": [
+       {
+          "name": "Wood",
+          "description": "Smoke from Wood to Coffins",
+          "x": 431,
+          "y": 350,
+          "videos": [
+             {
+                "ticks": "x",
+                "youtube": "iRKL-nLBlmw"
+             }
+          ]
+       },
+       {
+         "name": "Banana",
+         "description": "Smoke from Banana to Coffins",
+         "x": 429,
+         "y": 382,
+         "videos": [
+            {
+               "ticks": "x",
+               "youtube": "u0gngkxlt_A"
+            }
+         ]
+      }
+    ]
+ }

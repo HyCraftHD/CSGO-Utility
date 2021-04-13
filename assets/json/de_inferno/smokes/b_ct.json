@@ -1,0 +1,33 @@
+{
+    "type": "smoke",
+    "name": "CT",
+    "description": "Smokes for CT",
+    "x": 615,
+    "y": 490,
+    "entries": [
+       {
+          "name": "Banana",
+          "description": "Smoke from Banana to CT",
+          "x": 443,
+          "y": 390,
+          "videos": [
+             {
+                "ticks": "x",
+                "youtube": "W9QJgjuPYSc"
+             }
+          ]
+       },
+       {
+         "name": "T Spawn Barrel",
+         "description": "Smoke from T Spawn to CT",
+         "x": 253,
+         "y": 196,
+         "videos": [
+            {
+               "ticks": "128",
+               "youtube": "FWloOWtJpjM"
+            }
+         ]
+      }
+    ]
+ }
