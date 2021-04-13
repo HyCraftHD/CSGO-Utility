@@ -28,7 +28,6 @@ function _loadMap(mapName) {
 }
 
 function changeMap(mapName) {
-    console.log("Called")
     map._name = mapName;
     map._destroyMap();
     map._setupMap("map");
