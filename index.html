@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -23,12 +23,17 @@
     <script src="./js/map/setup.js"></script>
     <script src="./js/util.js"></script>
     <script src="./js/main.js"></script>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/main.css">
 </head>
 
 <body>
+
     <div id="wrapper">
+        <div class="sidenav">
+            <img class="sidenav-icon" src="assets/img/map_icon_de_inferno.svg" alt="Inferno" onclick="changeMap('de_inferno')"/>
+            <img class="sidenav-icon" src="assets/img/map_icon_de_nuke.svg" alt="Nuke" onclick="changeMap('de_nuke')"/>
+        </div>
         <div id="map"></div>
         <div id="list"></div>
         <div id="video">
