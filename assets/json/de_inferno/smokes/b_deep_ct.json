@@ -1,0 +1,33 @@
+{
+    "type": "smoke",
+    "name": "Deep CT",
+    "description": "Smokes for deep CT",
+    "x": 630,
+    "y": 575,
+    "entries": [
+       {
+          "name": "Wood",
+          "description": "Smoke from Wood to Deep CT",
+          "x": 431,
+          "y": 350,
+          "videos": [
+             {
+                "ticks": "128",
+                "youtube": "thnWXu1sK3g"
+             }
+          ]
+       },
+       {
+        "name": "Car",
+        "description": "Smoke from Car to Deep CT",
+        "x": 506,
+        "y": 388,
+        "videos": [
+           {
+              "ticks": "x",
+              "youtube": "msKdg_Fbh4k"
+           }
+        ]
+     }
+    ]
+ }

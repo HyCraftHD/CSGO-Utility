@@ -1,0 +1,21 @@
+{
+    "type": "smoke",
+    "name": "B Stairs",
+    "description": "Smoke Apps for the CT",
+    "x": 608,
+    "y": 433,
+    "entries": [
+       {
+          "name": "Banana Half Wall",
+          "description": "Smoke from Half Wall to B Stairs",
+          "x": 472,
+          "y": 407,
+          "videos": [
+             {
+                "ticks": "x",
+                "youtube": "Q48KjyA0XK4"
+             }
+          ]
+       }
+    ]
+ }

@@ -49,6 +49,14 @@ class UtilityMap {
         marker.addTo(this._types.get(point.type).layer)
     }
 
+    /**
+     * Destroys the current map instance so that we can create a new one.
+     */
+    _destroyMap() {
+        this._map.off();
+        this._map.remove();
+    }
+
     _showLocations(point) {
         let self = this
         let locations = point.entries

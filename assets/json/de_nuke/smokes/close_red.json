@@ -1,0 +1,21 @@
+{
+   "type": "smoke",
+   "name": "Close Red",
+   "description": "Smoke Close Red for the T",
+   "x": 225,
+   "y": 485,
+   "entries": [
+      {
+         "name": "T Spawn",
+         "description": "Smoke from T Spawn for an outside execute",
+         "x": 351,
+         "y": 242,
+         "videos": [
+            {
+               "ticks": "128",
+               "youtube": "2RXt3HWOXmc"
+            }
+         ]
+      }
+   ]
+}
