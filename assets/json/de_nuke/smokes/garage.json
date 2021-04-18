@@ -1,0 +1,21 @@
+{
+    "type": "smoke",
+    "name": "Garage",
+    "description": "Smoke Garage for the T",
+    "x": 260,
+    "y": 542,
+    "entries": [
+       {
+          "name": "T Outside",
+          "description": "Smoke from T Spawn for an outside execute",
+          "x": 255, 
+          "y": 380,
+          "videos": [
+             {
+                "ticks": "x",
+                "youtube": "Lh4n8bzHCSQ"
+             }
+          ]
+       }
+    ]
+ }
