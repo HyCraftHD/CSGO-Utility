@@ -1,0 +1,21 @@
+{
+    "type": "smoke",
+    "name": "Heaven",
+    "description": "Smoke Heaven for the T",
+    "x": 433,
+    "y": 501,
+    "entries": [
+       {
+          "name": "T Spawn",
+          "description": "Smoke from T Spawn for an outside execute",
+          "x": 345,
+          "y": 360,
+          "videos": [
+             {
+                "ticks": "128",
+                "youtube": "nghj6jBybec"
+             }
+          ]
+       }
+    ]
+ }

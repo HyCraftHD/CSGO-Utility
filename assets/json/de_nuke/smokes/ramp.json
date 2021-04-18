@@ -1,0 +1,21 @@
+{
+    "type": "smoke",
+    "name": "Ramp",
+    "description": "Smoke Ramp Cross for the T",
+    "x": 501,
+    "y": 427,
+    "entries": [
+       {
+          "name": "Trophy",
+          "description": "Smoke from Trophy for a ramp cross smoke",
+          "x": 430,
+          "y": 414,
+          "videos": [
+             {
+                "ticks": "x",
+                "youtube": "bLFxY6iNTYE"
+             }
+          ]
+       }
+    ]
+ }

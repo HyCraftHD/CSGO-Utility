@@ -1,0 +1,21 @@
+{
+    "type": "smoke",
+    "name": "Outside Blue",
+    "description": "Smoke Outside Blue for the T",
+    "x": 309,
+    "y": 515,
+    "entries": [
+       {
+          "name": "T Outside",
+          "description": "Smoke from T Outside for an outside execute",
+          "x": 259,
+          "y": 378,
+          "videos": [
+             {
+                "ticks": "x",
+                "youtube": "K-8gwDwiePg"
+             }
+          ]
+       }
+    ]
+ }
