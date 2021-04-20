@@ -1,0 +1,33 @@
+{
+    "type": "smoke",
+    "name": "B Site",
+    "description": "Smoke B-Site",
+    "x": 545, 
+    "y": 543, 
+    "entries": [ 
+       {
+          "name": "Short", 
+          "description": "Smoke from Short for an B Execute",
+          "x": 422, 
+          "y": 465, 
+          "videos": [
+             {
+                "ticks": "x",
+                "youtube": "cOxbRkaxtsA"
+             }
+          ]
+       },
+       {
+        "name": "Alley", 
+        "description": "Smoke from Alley for an B Execute",
+        "x": 304, 
+        "y": 636, 
+        "videos": [
+           {
+              "ticks": "x",
+              "youtube": "TkXYq5eGygk"
+           }
+        ]
+     }
+    ]
+ }

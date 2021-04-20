@@ -1,0 +1,45 @@
+{
+    "type": "smoke",
+    "name": "Long Truck",
+    "description": "Smoke Long Truck on A-Site",
+    "x": 663, 
+    "y": 331, 
+    "entries": [ 
+       {
+          "name": "Banana", 
+          "description": "Smoke from Banana for an A Execute",
+          "x": 354, 
+          "y": 385, 
+          "videos": [
+             {
+                "ticks": "x",
+                "youtube": "pgegNSrzTIk"
+             }
+          ]
+       },
+       {
+        "name": "Long", 
+        "description": "Smoke from Long for an A Execute",
+        "x": 419, 
+        "y": 157, 
+        "videos": [
+           {
+              "ticks": "x",
+              "youtube": "HO1WUeXaYOE"
+           }
+        ]
+     },
+     {
+        "name": "Long", 
+        "description": "Smoke from Long for an A Execute",
+        "x": 429, 
+        "y": 166, 
+        "videos": [
+           {
+              "ticks": "128",
+              "youtube": "rJRekY9aDks"
+           }
+        ]
+     }
+    ]
+ }

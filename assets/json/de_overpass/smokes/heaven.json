@@ -1,0 +1,21 @@
+{
+    "type": "smoke",
+    "name": "Heaven",
+    "description": "Smoke Heaven on B-Site",
+    "x": 609, 
+    "y": 471, 
+    "entries": [ 
+       {
+          "name": "Short", 
+          "description": "Smoke from Short for an B Execute",
+          "x": 422, 
+          "y": 465, 
+          "videos": [
+             {
+                "ticks": "x",
+                "youtube": "1ne8b1d49Ig"
+             }
+          ]
+       }
+    ]
+ }

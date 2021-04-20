@@ -1,0 +1,21 @@
+{
+    "type": "smoke",
+    "name": "Long Site",
+    "description": "Smoke Long on A-Site",
+    "x": 623, 
+    "y": 318, 
+    "entries": [ 
+       {
+          "name": "Banana", 
+          "description": "Smoke from Banana for an A Execute",
+          "x": 391, 
+          "y": 425, 
+          "videos": [
+             {
+                "ticks": "x",
+                "youtube": "4bUVJJoIHG4"
+             }
+          ]
+       }
+    ]
+ }

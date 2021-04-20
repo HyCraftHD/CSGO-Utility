@@ -1,0 +1,21 @@
+{
+    "type": "smoke",
+    "name": "A Site",
+    "description": "Smoke A-Site",
+    "x": 630, 
+    "y": 375, 
+    "entries": [ 
+       {
+          "name": "Divider", 
+          "description": "Smoke from Divider for an A Execute",
+          "x": 402, 
+          "y": 375, 
+          "videos": [
+             {
+                "ticks": "x",
+                "youtube": "9CAjHDW9TM0"
+             }
+          ]
+       }
+    ]
+ }

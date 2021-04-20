@@ -1,0 +1,21 @@
+{
+    "type": "smoke",
+    "name": "Bridge",
+    "description": "Smoke Bridge on B-Site",
+    "x": 499, 
+    "y": 541, 
+    "entries": [ 
+       {
+          "name": "Short", 
+          "description": "Smoke from Short for an B Execute",
+          "x": 422, 
+          "y": 465, 
+          "videos": [
+             {
+                "ticks": "x",
+                "youtube": "dTSZo1pPv6c"
+             }
+          ]
+       }
+    ]
+ }

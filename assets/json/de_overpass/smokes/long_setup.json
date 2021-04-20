@@ -1,0 +1,21 @@
+{
+    "type": "smoke",
+    "name": "Long Setup",
+    "description": "Smoke Long Setup on A-Site",
+    "x": 634, 
+    "y": 282, 
+    "entries": [ 
+       {
+          "name": "Long", 
+          "description": "Smoke from Long for an A Execute",
+          "x": 437, 
+          "y": 176, 
+          "videos": [
+             {
+                "ticks": "x",
+                "youtube": "gdzEmSCLNg4"
+             }
+          ]
+       }
+    ]
+ }

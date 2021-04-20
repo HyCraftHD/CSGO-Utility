@@ -1,0 +1,33 @@
+{
+    "type": "smoke",
+    "name": "Optimus",
+    "description": "Smoke Optimus on A-Site",
+    "x": 669, 
+    "y": 431, 
+    "entries": [ 
+       {
+          "name": "Banana", 
+          "description": "Smoke from Banana for an A Execute",
+          "x": 285, 
+          "y": 372, 
+          "videos": [
+             {
+                "ticks": "128",
+                "youtube": "Kdb57C1VPko"
+             }
+          ]
+       },
+       {
+        "name": "Banana", 
+        "description": "Smoke from Banana for an A Execute",
+        "x": 421, 
+        "y": 372, 
+        "videos": [
+           {
+              "ticks": "x",
+              "youtube": "vVtHvbZ59ro"
+           }
+        ]
+     }
+    ]
+ }

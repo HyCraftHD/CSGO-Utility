@@ -1,0 +1,21 @@
+{
+    "type": "smoke",
+    "name": "Flowerpot",
+    "description": "Smoke Flowerpot to entry A",
+    "x": 619, 
+    "y": 419, 
+    "entries": [ 
+       {
+          "name": "Connector", 
+          "description": "Smoke from Connector",
+          "x": 327, 
+          "y": 374, 
+          "videos": [
+             {
+                "ticks": "x",
+                "youtube": "0YmmC0J7V6Y"
+             }
+          ]
+       }
+    ]
+ }

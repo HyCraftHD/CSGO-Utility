@@ -1,0 +1,21 @@
+{
+    "type": "smoke",
+    "name": "Optimus",
+    "description": "Smoke Optimus on A-Site",
+    "x": 607, 
+    "y": 393, 
+    "entries": [ 
+       {
+          "name": "Divider", 
+          "description": "Smoke from Divider for an A Execute",
+          "x": 411, 
+          "y": 373, 
+          "videos": [
+             {
+                "ticks": "x",
+                "youtube": "D8WvwhXbEEE"
+             }
+          ]
+       }
+    ]
+ }
