@@ -17,10 +17,10 @@ class UtilityMap {
         let self = this
         let name = this._name
 
-        let files = await (await fetch("./assets/json/" + name + "/load.json")).json()
+        let files = await (await fetch("./api/maps/" + name + "/load.json")).json()
 
         files.forEach(async function (file) {
-            let point = await (await fetch("./assets/json/" + name + "/" + file)).json()
+            let point = await (await fetch("./api/maps/" + name + "/" + file)).json()
 
             self._addPoint(point)
         })
