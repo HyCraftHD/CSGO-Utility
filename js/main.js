@@ -1,11 +1,12 @@
-var map;
+var map
 
 function init() {
     _loadYoutubeApi(function() {
+        map = new UtilityMap("map", "list", "video")
         if(window.location.hash) {
-            _createMap(window.location.hash.slice(1))
+            loadMap(window.location.hash.slice(1))
         } else {
-            _createMap("de_inferno")
+            loadMap("de_inferno")
         }
 
     })
@@ -19,11 +20,6 @@ function _loadYoutubeApi(readyFunction) {
     firstScriptTag.parentNode.insertBefore(script, firstScriptTag)
 
     window.onYouTubeIframeAPIReady = readyFunction
-}
-
-function _createMap(mapName) {
-    map = new UtilityMap("map", "list", "video")
-    loadMap(mapName)
 }
 
 function loadMap(mapName) {
