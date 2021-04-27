@@ -1,8 +1,6 @@
 class UtilityMap {
 
-    constructor(divMap, divList, divVideo, name) {
-        this._name = name
-
+    constructor(divMap, divList, divVideo) {
         this._list = document.getElementById(divList)
         this._video = document.getElementById(divVideo)
 
@@ -13,9 +11,19 @@ class UtilityMap {
         this._setupVideoPlayer()
     }
 
-    async loadPoints() {
+    async loadMap(name) {
         let self = this
-        let name = this._name
+
+        // Clear map
+        self._types.get("smoke").layer.clearLayers()
+        self._types.get("molotov").layer.clearLayers()
+        self._types.get("flash").layer.clearLayers()
+        self._unshowLocations()
+        self._unshowList()
+        self._unshowPlayer()
+
+        // Load new map data
+        self._backgroundImage.setUrl("./assets/img/" + name + "_map.png")
 
         let files = await (await fetch("./api/maps/" + name + "/load.json")).json()
 
@@ -47,14 +55,6 @@ class UtilityMap {
         })
 
         marker.addTo(this._types.get(point.type).layer)
-    }
-
-    /**
-     * Destroys the current map instance so that we can create a new one.
-     */
-    _destroyMap() {
-        this._map.off();
-        this._map.remove();
     }
 
     _showLocations(point) {

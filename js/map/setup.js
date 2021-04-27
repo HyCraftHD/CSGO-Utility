@@ -1,8 +1,6 @@
 UtilityMap.prototype._setupMap = function (div) {
     let self = this
-
-    let name = this._name
-
+    
     let bounds = [[0, 0], [800, 800]]
 
     let map = L.map(div, {
@@ -10,7 +8,7 @@ UtilityMap.prototype._setupMap = function (div) {
         attributionControl: false
     })
 
-    L.imageOverlay("./assets/img/" + name + "_map.png", bounds).addTo(map)
+    this._backgroundImage = L.imageOverlay("", bounds).addTo(map)
 
     map.setView([400, 400], 0)
     map.setMaxBounds(bounds)

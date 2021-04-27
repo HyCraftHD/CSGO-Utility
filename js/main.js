@@ -3,9 +3,9 @@ var map;
 function init() {
     _loadYoutubeApi(function() {
         if(window.location.hash) {
-            _loadMap(window.location.hash.slice(1));
+            _createMap(window.location.hash.slice(1))
         } else {
-            _loadMap("de_inferno");
+            _createMap("de_inferno")
         }
 
     })
@@ -21,18 +21,11 @@ function _loadYoutubeApi(readyFunction) {
     window.onYouTubeIframeAPIReady = readyFunction
 }
 
-function _loadMap(mapName) {
-    map = new UtilityMap("map", "list", "video", mapName)
-
-    map.loadPoints()
+function _createMap(mapName) {
+    map = new UtilityMap("map", "list", "video")
+    loadMap(mapName)
 }
 
-function changeMap(mapName) {
-    map._name = mapName
-    map._unshowPlayer()
-    map._unshowList()
-    map._destroyMap()
-    map._setupMap("map")
-    map._setupLayers()
-    map.loadPoints()
+function loadMap(mapName) {
+    map.loadMap(mapName)
 }
