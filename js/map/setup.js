@@ -111,6 +111,11 @@ UtilityMap.prototype._setupVideoPlayer = function () {
             loop: 1
         },
         events: {
+            onReady: function(event) {
+                if(window._onYoutubePlayerReady) {
+                    window._onYoutubePlayerReady()
+                }
+            },
             onStateChange: function(event) {
                 if(event.data == 0) {
                     player.seekTo(0, true)

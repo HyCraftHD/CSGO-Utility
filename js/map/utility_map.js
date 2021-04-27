@@ -285,6 +285,8 @@ class UtilityMap {
             iframe.style.borderColor = color
             
             player.loadVideoById(selectedVideo.youtube)
+        } else {
+            console.log("Video could not be loaded")
         }
     }
 

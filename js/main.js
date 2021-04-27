@@ -1,5 +1,7 @@
 var map
 
+var delayedSetLocation = null
+
 function init() {
     _loadYoutubeApi(function() {
         map = new UtilityMap("map", "list", "video")
@@ -15,6 +17,13 @@ function _loadYoutubeApi(readyFunction) {
     firstScriptTag.parentNode.insertBefore(script, firstScriptTag)
 
     window.onYouTubeIframeAPIReady = readyFunction
+
+    window._onYoutubePlayerReady = function() {
+        if(delayedSetLocation != null) {
+            map._selectLocation(delayedSetLocation)
+            delayedSetLocation = null
+        }
+    }
 }
 
 async function _parseQuery() {
@@ -26,8 +35,13 @@ async function _parseQuery() {
     // Try to select right utility
     let type = query.type
     let file = query.file
+    let entry = query.entry
+    let ticks = query.ticks
 
+    // Check if type and file is set
     if(type != undefined && file != undefined) {
+
+        // Try to select utility
         let layerType = map._types.get(type)
         if(layerType != undefined) {
             let layer = layerType.layer
@@ -36,6 +50,18 @@ async function _parseQuery() {
                 if(marker.point.file == file) {
                     map._showLocations(marker.point)
                     map._selectPoint(marker)
+                    break
+                }
+            }
+        }
+
+        // Try to select right location of utility
+        if(entry != undefined) {
+            let layer = map._locationLayer
+
+            for (const marker of layer.getLayers()) {
+                if(marker.location.name.toUpperCase() == entry.toUpperCase()) {
+                    delayedSetLocation = marker
                     break
                 }
             }
