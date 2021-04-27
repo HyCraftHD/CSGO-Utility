@@ -27,11 +27,12 @@ class UtilityMap {
 
         let files = await (await fetch("./api/maps/" + name + "/load.json")).json()
 
-        files.forEach(async function (file) {
+        await Promise.all(files.map(async (file) => {
             let point = await (await fetch("./api/maps/" + name + "/" + file)).json()
-
+            // Set the file name as a property
+            point.file = file
             self._addPoint(point)
-        })
+        }));
     }
 
     _addPoint(point) {

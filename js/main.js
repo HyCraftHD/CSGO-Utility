@@ -3,12 +3,7 @@ var map
 function init() {
     _loadYoutubeApi(function() {
         map = new UtilityMap("map", "list", "video")
-        if(window.location.hash) {
-            loadMap(window.location.hash.slice(1))
-        } else {
-            loadMap("de_inferno")
-        }
-
+        _parseQuery()
     })
 }
 
@@ -22,6 +17,32 @@ function _loadYoutubeApi(readyFunction) {
     window.onYouTubeIframeAPIReady = readyFunction
 }
 
-function loadMap(mapName) {
-    map.loadMap(mapName)
+async function _parseQuery() {
+    let query = parseQuery(window.location.search)
+    
+    // Set map of the map query
+    await loadMap(query.map == undefined ? "de_inferno" : query.map)
+
+    // Try to select right utility
+    let type = query.type
+    let file = query.file
+
+    if(type != undefined && file != undefined) {
+        let layerType = map._types.get(type)
+        if(layerType != undefined) {
+            let layer = layerType.layer
+    
+            for (const marker of layer.getLayers()) {
+                if(marker.point.file == file) {
+                    map._showLocations(marker.point)
+                    map._selectPoint(marker)
+                    break
+                }
+            }
+        }
+    }
+}
+
+async function loadMap(mapName) {
+    await map.loadMap(mapName)
 }
