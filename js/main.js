@@ -36,7 +36,6 @@ async function _parseQuery() {
     let type = query.type
     let file = query.file
     let entry = query.entry
-    let ticks = query.ticks
 
     // Check if type and file is set
     if(type != undefined && file != undefined) {
