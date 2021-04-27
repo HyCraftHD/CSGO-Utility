@@ -65,6 +65,30 @@ UtilityMap.prototype._setupIcons = function () {
         className: "map-marker"
     })
 
+    this._types.get("molotov").icon = new L.Icon({
+        iconUrl: "./assets/img/molotov.png",
+        iconSize: [30, 30],
+        className: "map-marker"
+    })
+
+    this._types.get("molotov").selectedIcon = new L.Icon({
+        iconUrl: "./assets/img/molotov_selected.png",
+        iconSize: [30, 30],
+        className: "map-marker"
+    })
+
+    this._types.get("flash").icon = new L.Icon({
+        iconUrl: "./assets/img/flash.png",
+        iconSize: [30, 30],
+        className: "map-marker"
+    })
+
+    this._types.get("flash").selectedIcon = new L.Icon({
+        iconUrl: "./assets/img/flash_selected.png",
+        iconSize: [30, 30],
+        className: "map-marker"
+    })
+
     this._locationIcon = new L.Icon({
         iconUrl: "./assets/img/from_where.png",
         iconSize: [20, 20]
