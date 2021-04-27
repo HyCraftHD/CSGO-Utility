@@ -28,11 +28,11 @@ function _loadMap(mapName) {
 }
 
 function changeMap(mapName) {
-    map._name = mapName;
-    map._destroyMap();
-    map._setupMap("map");
+    map._name = mapName
+    map._unshowPlayer()
+    map._unshowList()
+    map._destroyMap()
+    map._setupMap("map")
     map._setupLayers()
-    map.loadPoints();
-
-
+    map.loadPoints()
 }
