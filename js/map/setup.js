@@ -40,12 +40,16 @@ UtilityMap.prototype._setupTypes = function () {
     let types = new Map()
 
     types.set("smoke", {})
+    types.set("molotov", {})
+    types.set("flash", {})
 
     this._types = types
 }
 
 UtilityMap.prototype._setupLayers = function () {
     this._types.get("smoke").layer = new L.layerGroup().addTo(this._map)
+    this._types.get("molotov").layer = new L.layerGroup().addTo(this._map)
+    this._types.get("flash").layer = new L.layerGroup().addTo(this._map)
 
 
     this._showLocationLayer = false
