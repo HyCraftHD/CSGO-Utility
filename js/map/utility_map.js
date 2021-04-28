@@ -119,6 +119,8 @@ class UtilityMap {
     }
 
     _selectLocation(marker, ticks = undefined) {
+        addHistory({entry: marker.location.name})
+
         marker.setIcon(this._locationIconSelected)
         marker._bringToFront()
         this._selectedLocation = marker
@@ -129,6 +131,8 @@ class UtilityMap {
     }
 
     _unselectLocation() {
+        addHistory({entry: null})
+
         let marker = this._selectedLocation
 
         if (marker != undefined) {
