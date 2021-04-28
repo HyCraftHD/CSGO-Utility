@@ -95,6 +95,8 @@ class UtilityMap {
     }
 
     _selectPoint(marker) {
+        addHistory({type: marker.point.type, file: marker.point.file})
+
         marker.setIcon(marker.options.selectedIcon)
         this._selectedPoint = marker
         this._updateList(marker.point)
@@ -103,6 +105,8 @@ class UtilityMap {
 
     _unselectPoint() {
         this._unselectLocation()
+
+        addHistory({type: null, file: null})
 
         let marker = this._selectedPoint
 

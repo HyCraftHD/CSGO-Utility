@@ -39,7 +39,7 @@ async function _parseQuery() {
 
     // Change url to map if not set
     if(query.map == undefined) {
-        replaceHistory("map", selectedMap)
+        replaceHistory({map: selectedMap})
     }
 
     await map.loadMap(selectedMap)
@@ -81,6 +81,6 @@ async function _parseQuery() {
 }
 
 async function loadMap(mapName) {
-    addHistory("map", mapName)
+    addHistory({"map": mapName})
     await map.loadMap(mapName)
 }

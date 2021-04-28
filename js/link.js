@@ -8,12 +8,29 @@ function parseQuery(queryString) {
     return query
 }
 
-function replaceHistory(key, value) {
-    window.history.replaceState("", "", updateQueryParameter(window.location.href, key, value))
+function replaceHistory(map) {
+    const params = manipulateQuery(window.location.search, map)
+    window.history.replaceState("", "", window.location.pathname + "?" + decodeURIComponent(params))
 }
 
-function addHistory(key, value) {
-    window.history.pushState("", "", updateQueryParameter(window.location.href, key, value))
+function addHistory(map) {
+    const params = manipulateQuery(window.location.search, map)
+    window.history.pushState("", "", window.location.pathname + "?" + decodeURIComponent(params))
+}
+
+function manipulateQuery(query, map) {
+    const params = new URLSearchParams(query)
+
+    for (const key in map) {
+        const value = map[key]
+        if(value == null) {
+            params.delete(key)
+        } else {
+            params.set(key, value)
+        }
+    }
+
+    return params
 }
 
 function updateQueryParameter(url, key, value) {
