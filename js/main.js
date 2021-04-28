@@ -29,8 +29,15 @@ function _loadYoutubeApi(readyFunction) {
 async function _parseQuery() {
     let query = parseQuery(window.location.search)
     
-    // Set map of the map query
-    await loadMap(query.map == undefined ? "de_inferno" : query.map)
+    // Set map of the map query (default is de_inferno)
+    let selectedMap = query.map == undefined ? "de_inferno" : query.map
+
+    // Change url to map if not set
+    if(query.map == undefined) {
+        window.history.replaceState('', '', updateQueryParameter(window.location.href, "map", selectedMap))
+    }
+
+    await loadMap(selectedMap)
 
     // Try to select right utility
     let type = query.type
