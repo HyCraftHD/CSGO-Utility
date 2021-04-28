@@ -33,6 +33,8 @@ function _loadYoutubeApi(readyFunction) {
 
 async function _parseQuery() {
     let query = parseQuery(window.location.search)
+
+    console.log(query)
     
     // Set map of the map query (default is de_inferno)
     let selectedMap = query.map == undefined ? "de_inferno" : query.map

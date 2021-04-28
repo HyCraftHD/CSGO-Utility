@@ -4,8 +4,12 @@ function replaceHistory(map) {
 }
 
 function addHistory(map) {
-    const params = manipulateQuery(window.location.search, map)
-    window.history.pushState("", "", window.location.pathname + "?" + decodeURIComponent(params))
+    const search = "?" + decodeURIComponent(manipulateQuery(window.location.search, map))
+    if(decodeURIComponent(window.location.search) == search) {
+        return;
+    }
+
+    window.history.pushState("", "", window.location.pathname + search)
 }
 
 function parseQuery(query) {
