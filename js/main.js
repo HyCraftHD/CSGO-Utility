@@ -34,7 +34,7 @@ async function _parseQuery() {
 
     // Change url to map if not set
     if(query.map == undefined) {
-        window.history.replaceState('', '', updateQueryParameter(window.location.href, "map", selectedMap))
+        replaceHistory("map", selectedMap)
     }
 
     await loadMap(selectedMap)
