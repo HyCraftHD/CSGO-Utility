@@ -7,6 +7,11 @@ function init() {
         map = new UtilityMap("map", "list", "video")
         _parseQuery()
     })
+
+    // Will be called when back / forward button is pressed
+    window.onpopstate = function(event) {
+        _parseQuery()
+    }
 }
 
 function _loadYoutubeApi(readyFunction) {
@@ -37,7 +42,7 @@ async function _parseQuery() {
         replaceHistory("map", selectedMap)
     }
 
-    await loadMap(selectedMap)
+    await map.loadMap(selectedMap)
 
     // Try to select right utility
     let type = query.type
@@ -76,5 +81,6 @@ async function _parseQuery() {
 }
 
 async function loadMap(mapName) {
+    addHistory("map", mapName)
     await map.loadMap(mapName)
 }
