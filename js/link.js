@@ -1,13 +1,3 @@
-function parseQuery(queryString) {
-    var query = {};
-    var pairs = (queryString[0] === "?" ? queryString.substr(1) : queryString).split("&")
-    for (var i = 0; i < pairs.length; i++) {
-        var pair = pairs[i].split("=")
-        query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || "")
-    }
-    return query
-}
-
 function replaceHistory(map) {
     const params = manipulateQuery(window.location.search, map)
     window.history.replaceState("", "", window.location.pathname + "?" + decodeURIComponent(params))
@@ -16,6 +6,17 @@ function replaceHistory(map) {
 function addHistory(map) {
     const params = manipulateQuery(window.location.search, map)
     window.history.pushState("", "", window.location.pathname + "?" + decodeURIComponent(params))
+}
+
+function parseQuery(query) {
+    const params = new URLSearchParams(query)
+    const queryObject = {}
+
+    for (const entry of params.entries()) {
+        queryObject[decodeURIComponent(entry[0])] = decodeURIComponent(entry[1] || "")
+    }
+
+    return queryObject
 }
 
 function manipulateQuery(query, map) {
@@ -31,24 +32,4 @@ function manipulateQuery(query, map) {
     }
 
     return params
-}
-
-function updateQueryParameter(url, key, value) {
-    var newAdditionalURL = "";
-    var tempArray = url.split("?");
-    var baseURL = tempArray[0];
-    var additionalURL = tempArray[1];
-    var temp = "";
-    if (additionalURL) {
-        tempArray = additionalURL.split("&");
-        for (var i=0; i<tempArray.length; i++){
-            if(tempArray[i].split('=')[0] != key){
-                newAdditionalURL += temp + tempArray[i];
-                temp = "&";
-            }
-        }
-    }
-
-    var rows_txt = temp + "" + key + "=" + value;
-    return baseURL + "?" + newAdditionalURL + rows_txt;
 }
