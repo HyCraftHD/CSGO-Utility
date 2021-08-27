@@ -1,0 +1,45 @@
+{
+    "type": "smoke",
+    "name": "Long",
+    "description": "Smoke Long",
+    "x": 333,
+    "y": 563,
+    "entries": [
+       {
+          "name": "Mid",
+          "description": "",
+          "x": 247,
+          "y": 487,
+          "videos": [
+             {
+                "ticks": "128",
+                "youtube": "jIkvkyyWaJM"
+             }
+          ]
+       },
+       {
+            "name": "Roses",
+            "description": "",
+            "x": 220,
+            "y": 448,
+            "videos": [
+            {
+                "ticks": "x",
+                "youtube": "BTTUEWycvaw"
+            }
+            ]
+       },
+       {
+        "name": "Second Mid",
+        "description": "",
+        "x": 132,
+        "y": 459,
+        "videos": [
+        {
+            "ticks": "x",
+            "youtube": "aZZxG4PrPLA"
+        }
+        ]
+   }
+    ]
+ }

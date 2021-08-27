@@ -1,0 +1,45 @@
+{
+    "type": "smoke",
+    "name": "Short",
+    "description": "",
+    "x": 209,
+    "y": 560,
+    "entries": [
+       {
+          "name": "Broom",
+          "description": "",
+          "x": 236,
+          "y": 450,
+          "videos": [
+             {
+                "ticks": "x",
+                "youtube": "2mjvQTH0eZo"
+             }
+          ]
+       },
+       {
+        "name": "Lower Mid",
+        "description": "",
+        "x": 252,
+        "y": 365,
+        "videos": [
+           {
+              "ticks": "128",
+              "youtube": "J8eXriKnFpo"
+           }
+        ]
+       },
+       {
+        "name": "Roses",
+        "description": "",
+        "x": 215,
+        "y": 450,
+        "videos": [
+           {
+              "ticks": "x",
+              "youtube": "wOGjprAGf2s"
+           }
+        ]
+       }
+    ]
+ }

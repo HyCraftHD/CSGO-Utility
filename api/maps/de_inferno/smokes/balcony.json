@@ -1,0 +1,21 @@
+{
+    "type": "smoke",
+    "name": "Hay",
+    "description": "",
+    "x": 170,
+    "y": 654,
+    "entries": [
+       {
+          "name": "Apps",
+          "description": "",
+          "x": 137,
+          "y": 600,
+          "videos": [
+             {
+                "ticks": "x",
+                "youtube": "dN7_7-1xSkM"
+             }
+          ]
+       }
+    ]
+ }

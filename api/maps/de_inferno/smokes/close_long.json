@@ -1,0 +1,45 @@
+{
+    "type": "smoke",
+    "name": "Close Long",
+    "description": "",
+    "x": 302,
+    "y": 559,
+    "entries": [
+       {
+          "name": "Boiler",
+          "description": "",
+          "x": 210,
+          "y": 527,
+          "videos": [
+             {
+                "ticks": "x",
+                "youtube": "uq-hv-MLfPI"
+             }
+          ]
+       },
+       {
+        "name": "Lower Middle",
+        "description": "",
+        "x": 255,
+        "y": 368,
+        "videos": [
+           {
+              "ticks": "128",
+              "youtube": "sd2BmzD-e1Q"
+           }
+        ]
+       },
+       {
+        "name": "Roses",
+        "description": "",
+        "x": 218,
+        "y": 451,
+        "videos": [
+           {
+              "ticks": "x",
+              "youtube": "UeZPJ-87YLA"
+           }
+        ]
+       }
+    ]
+ }

@@ -1,0 +1,81 @@
+{
+    "type": "smoke",
+    "name": "Moto",
+    "description": "",
+    "x": 316,
+    "y": 701,
+    "entries": [
+       {
+          "name": "A-Site",
+          "description": "",
+          "x": 125,
+          "y": 623,
+          "videos": [
+             {
+                "ticks": "x",
+                "youtube": "kiu_tBavFsA"
+             }
+          ]
+       },
+       {
+        "name": "Mexico",
+        "description": "",
+        "x": 295,
+        "y": 366,
+        "videos": [
+           {
+              "ticks": "128",
+              "youtube": "-vTmo8jqmjA"
+           }
+        ]
+       },
+       {
+        "name": "Mid",
+        "description": "",
+        "x": 250,
+        "y": 488,
+        "videos": [
+           {
+              "ticks": "x",
+              "youtube": "FV6PgEaisRU"
+           }
+        ]
+       },
+       {
+        "name": "Pit",
+        "description": "",
+        "x": 106,
+        "y": 756,
+        "videos": [
+           {
+              "ticks": "128",
+              "youtube": "-1xHsaJG8gY"
+           }
+        ]
+       },
+       {
+        "name": "Pit",
+        "description": "",
+        "x": 106,
+        "y": 756,
+        "videos": [
+           {
+              "ticks": "x",
+              "youtube": "_MXp3OA76Xo"
+           }
+        ]
+       },
+       {
+        "name": "Mid",
+        "description": "",
+        "x": 252,
+        "y": 507,
+        "videos": [
+           {
+              "ticks": "x",
+              "youtube": "EF2kNTi6KUI"
+           }
+        ]
+       }
+    ]
+ }

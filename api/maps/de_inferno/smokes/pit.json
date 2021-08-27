@@ -1,0 +1,21 @@
+{
+    "type": "smoke",
+    "name": "Pit",
+    "description": "Smoke Apps for the CT",
+    "x": 174,
+    "y": 708,
+    "entries": [
+       {
+          "name": "Top Mid",
+          "description": "",
+          "x": 278,
+          "y": 481,
+          "videos": [
+             {
+                "ticks": "x",
+                "youtube": "0Mg6xGgxYiY"
+             }
+          ]
+       }
+    ]
+ }

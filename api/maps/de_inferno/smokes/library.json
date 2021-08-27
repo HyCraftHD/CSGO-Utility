@@ -1,0 +1,33 @@
+{
+    "type": "smoke",
+    "name": "Library",
+    "description": "Smoke Library",
+    "x": 363,
+    "y": 727,
+    "entries": [
+       {
+          "name": "Mid",
+          "description": "",
+          "x": 247,
+          "y": 491,
+          "videos": [
+             {
+                "ticks": "x",
+                "youtube": "CzwNboBhXsw"
+             }
+          ]
+       },
+       {
+            "name": "Mid",
+            "description": "",
+            "x": 132,
+            "y": 378,
+            "videos": [
+            {
+                "ticks": "128",
+                "youtube": "bWOMlIVwQnk"
+            }
+            ]
+       }
+    ]
+ }
