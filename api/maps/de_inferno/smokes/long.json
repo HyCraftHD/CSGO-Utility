@@ -30,16 +30,16 @@
             ]
        },
        {
-        "name": "Second Mid",
-        "description": "",
-        "x": 132,
-        "y": 459,
-        "videos": [
-        {
-            "ticks": "x",
-            "youtube": "aZZxG4PrPLA"
-        }
+            "name": "Second Mid",
+            "description": "",
+            "x": 132,
+            "y": 459,
+            "videos": [
+            {
+                "ticks": "x",
+                "youtube": "aZZxG4PrPLA"
+            }
         ]
-   }
+       }
     ]
  }

@@ -4,5 +4,13 @@
    "smokes/b_ct.json",
    "smokes/coffins.json",
    "smokes/b_deep_ct.json",
-   "smokes/b_stairs.json"
+   "smokes/b_stairs.json",
+   "smokes/balcony.json",
+   "smokes/close_long.json",
+   "smokes/library.json",
+   "smokes/long.json",
+   "smokes/minipit.json",
+   "smokes/moto.json",
+   "smokes/pit.json",
+   "smokes/short.json"
 ]
