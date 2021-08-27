@@ -2,14 +2,14 @@
     "type": "smoke",
     "name": "Mini Pit",
     "description": "",
-    "x": 126,
-    "y": 551,
+    "x": 166,
+    "y": 676,
     "entries": [
        {
           "name": "Mid",
           "description": "",
-          "x": 169,
-          "y": 676,
+          "x": 293,
+          "y": 449,
           "videos": [
              {
                 "ticks": "128",
